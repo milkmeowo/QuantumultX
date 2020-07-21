@@ -4,25 +4,25 @@ const path2 = "/pay/balance";
 var path = $request.path;
 function modify_card() {
   let obj = JSON.parse(body);
-  obj["remainCoupon"] = 99999;
-  obj["expiredTime"] = 1594223999;
+  let day = 1000*86400
+  obj["expiredTime"] = obj["expiredTime"]+day;
   obj["expired"] = 0;
-  obj["remainTime"] = 1330440;
+  obj["remainTime"] = obj["remainTime"]+day;
   body = JSON.stringify(obj);
 }
 
-function modify_balance() {
-  let obj = JSON.parse(body);
-  obj["balance"] = 200;
-  obj["giftBalance"] = 100;
-  obj["peerBalance"] = 100;
-  body = JSON.stringify(obj);
-   }
+// function modify_balance() {
+//   let obj = JSON.parse(body);
+//   obj["balance"] = 200;
+//   obj["giftBalance"] = 100;
+//   obj["peerBalance"] = 100;
+//   body = JSON.stringify(obj);
+//    }
    
 if (path.indexOf(path1) != -1){
   modify_card();
 }
-if (path.indexOf(path2) != -1 ){
-  modify_balance();
-}
+// if (path.indexOf(path2) != -1 ){
+//   modify_balance();
+// }
 $done(body);
