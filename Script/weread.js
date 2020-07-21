@@ -8,7 +8,7 @@ function modify_card() {
   obj["expiredTime"] = obj["expiredTime"]+day;
   obj["expired"] = 0;
   obj["remainTime"] = obj["remainTime"]+day;
-  $notify('增加时长成功','增加了1000天')
+  console.log('增加时长成功增加了1000天')
   body = JSON.stringify(obj);
 }
 
