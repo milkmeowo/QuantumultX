@@ -2,14 +2,13 @@ var body = $response.body;
 const path1 = "/pay/memberCardSummary";
 const path2 = "/pay/balance";
 var path = $request.path;
-console.log('req-path',path)
-console.log('req',$request)
 function modify_card() {
   let obj = JSON.parse(body);
   let day = 1000*86400
   obj["expiredTime"] = obj["expiredTime"]+day;
   obj["expired"] = 0;
   obj["remainTime"] = obj["remainTime"]+day;
+  $notify('增加时长成功','增加了1000天')
   body = JSON.stringify(obj);
 }
 
